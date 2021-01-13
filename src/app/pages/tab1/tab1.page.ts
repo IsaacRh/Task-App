@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WishesService } from '../../services/wishes.service';
+import { List } from '../../models/list.model';
 
 @Component({
   selector: 'app-tab1',
@@ -7,7 +8,8 @@ import { WishesService } from '../../services/wishes.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor(public wishes: WishesService) {}
+  
+  constructor(public wishes: WishesService) {
+  }
 
 }

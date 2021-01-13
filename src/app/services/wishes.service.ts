@@ -6,5 +6,9 @@ import { List } from '../models/list.model';
 })
 export class WishesService {
   lists: List[] = [];
-  constructor() { console.info('starting service') }
+  constructor() {
+    const listOne = new List("First List");
+    const listTwo = new List("second List");
+    this.lists.push(listOne, listTwo);
+  }
 }
