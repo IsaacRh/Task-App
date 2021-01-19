@@ -7,8 +7,11 @@ import { List } from '../models/list.model';
 export class WishesService {
   lists: List[] = [];
   constructor() {
-    const listOne = new List("First List");
-    const listTwo = new List("second List");
-    this.lists.push(listOne, listTwo);
+    //this.lists.push(listOne, listTwo);
+  }
+
+  createList(title: string){
+    const list = new List(title);
+    this.lists.push(list);
   }
 }
