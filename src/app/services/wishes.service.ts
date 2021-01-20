@@ -7,11 +7,24 @@ import { List } from '../models/list.model';
 export class WishesService {
   lists: List[] = [];
   constructor() {
-    //this.lists.push(listOne, listTwo);
+    this.loadStorage();
   }
 
   createList(title: string){
     const list = new List(title);
     this.lists.push(list);
+    this.saveStorage();
+  }
+
+  saveStorage(){
+    localStorage.setItem('data', JSON.stringify(this.lists));
+  }
+
+  loadStorage(){
+    if (localStorage.getItem('data')){
+     this.lists = JSON.parse(localStorage.getItem('data'));
+    }else{ 
+      this.lists = [];
+    }
   }
 }
