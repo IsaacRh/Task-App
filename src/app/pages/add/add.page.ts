@@ -13,9 +13,9 @@ export class AddPage implements OnInit {
   list: List;
   itemName = '';
 
-  constructor(private wishes: WishesService, private route: ActivatedRoute) {
+  constructor(private wishService: WishesService, private route: ActivatedRoute) {
     const taskId = this.route.snapshot.paramMap.get('taskId');
-    this.list = wishes.getList(taskId);
+    this.list = wishService.getList(taskId);
   }
 
   ngOnInit() {
@@ -26,7 +26,20 @@ export class AddPage implements OnInit {
     const itemNew = new ItemList(this.itemName);
     this.list.items.push(itemNew);
     this.itemName = '';
-    this.wishes.saveStorage();
+    this.wishService.saveStorage();
+  }
+
+  changeState(item: ItemList){
+    const pendings = this.list.items.filter(item => !item.completed).length;
+    if (pendings === 0) {
+      this.list.finishedDate = new Date();
+      this.list.completed = true;
+    } else {
+      this.list.finishedDate = null;
+      this.list.completed = false;
+    }
+    console.info(this.list);
+    this.wishService.saveStorage();
   }
 
 }
