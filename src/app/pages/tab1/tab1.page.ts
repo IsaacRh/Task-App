@@ -41,13 +41,13 @@ export class Tab1Page {
             if (data.title.length === 0) {
               return;
             }
-            this.wishes.createList(data.title);
+            const taskId = this.wishes.createList(data.title);
+            this.router.navigateByUrl(`/tabs/tab1/add/${taskId}`);
           }
 
         }
       ]
     });
     alert.present();
-    //this.router.navigateByUrl('/tabs/tab1/add');
   }
 }

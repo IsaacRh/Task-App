@@ -12,15 +12,15 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating">New</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="itemName" (keyup.enter)="addItem()" ></ion-input> <!-- llaves cuadradas = lanzar eventos, llaves redondas = escuchar eventos -->
     </ion-item>
   </ion-list>
 
   <ion-list>
     <ion-list-header>Task for do it</ion-list-header>
-    <ion-item>
-      <ion-label>Remember</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
+    <ion-item *ngFor="let item of list.items">
+      <ion-label>{{item.desc}}</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="item.completed"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>
