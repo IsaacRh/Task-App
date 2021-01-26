@@ -17,7 +17,7 @@
   </ion-list>
 
   <ion-list>
-    <ion-list-header>Task for do it</ion-list-header>
+    <ion-list-header *ngIf="list.items.length > 0"><ion-label>Task for do it</ion-label></ion-list-header>
     <ion-item-sliding *ngFor="let item of list.items; let i = index" class="animated fadeInDown">
       <ion-item>
         <ion-label>{{item.desc}}</ion-label>

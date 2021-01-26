@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WishesService } from '../../services/wishes.service';
 import { List } from '../../models/list.model';
 import { ItemList } from '../../models/list-item.model';
@@ -13,7 +13,7 @@ export class AddPage implements OnInit {
   list: List;
   itemName = '';
 
-  constructor(private wishService: WishesService, private route: ActivatedRoute) {
+  constructor(private wishService: WishesService, private route: ActivatedRoute, private router: Router) {
     const taskId = this.route.snapshot.paramMap.get('taskId');
     this.list = wishService.getList(taskId);
   }
