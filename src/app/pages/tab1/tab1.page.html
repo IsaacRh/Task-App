@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <app-lists></app-lists>
   <ion-list>
     <ion-item *ngFor="let list of wishes.lists" detail (click)="selectedList(list)">
       <ion-label>
