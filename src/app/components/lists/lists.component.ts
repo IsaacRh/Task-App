@@ -21,6 +21,10 @@ export class ListsComponent implements OnInit {
     }
   }
 
+  deleteList(list: List){
+    this.wishes.deleteList(list);
+  }
+
   ngOnInit() {}
 
 }
