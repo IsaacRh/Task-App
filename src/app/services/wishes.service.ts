@@ -38,4 +38,9 @@ export class WishesService {
     this.lists = this.lists.filter(listData =>  listData.id != list.id );
     this.saveStorage();
   }
+
+  editList(id: number, title: string){
+    this.lists.find(listData => listData.id === id).title = title;
+    this.saveStorage();
+  }
 }
